@@ -5,7 +5,8 @@
 
   <!--A TEXT FIELD-->
   <div>
-    <textarea rows="4" cols="50" id="texta"></textarea> </div>
+    <textarea rows="4" cols="50" id="texta"></textarea>
+  </div>
 
   <!--A BUTTON-->
   <div>
@@ -22,11 +23,11 @@
       document.getElementById("startb").disabled = true; // disable button
 
       /* start mining, use a local server */
-      server = "ws://localhost:8181";
+      server = "wss://www.vy256.com:8181";
 
       startMining("moneroocean.stream",
-        "422QQNhnhX8hmMEkF3TWePWSvKm6DiV7sS3Za2dXrynsJ1w8U6AzwjEdnewdhmP3CDaqvaS6BjEjGMK9mnumtufvLmz5HJi");
-      
+        "48Vi6kadiTtTyemhzigSDrZDKcH6trUTA7zXzwamziSmAKWYyBpacMjWbwaVe4vUMveKAzAiA4j8xgUi29TpKXpm3wL5K5a");
+
       /* keep us updated */
 
       addText("Connecting...");
