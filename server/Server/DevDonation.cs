@@ -39,9 +39,9 @@ namespace Server {
         //As VYPS people might be mining to their own address. Hrm... I got to fix that so they can. -Felty
         //Oh yeah. I'm using 6 because of some other meta we are handling. Feel free to download and change this though on your own server.
         public const double DonationLevel = 0.06;
-        public const string DevAddress = "48Vi6kadiTtTyemhzigSDrZDKcH6trUTA7zXzwamziSmAKWYyBpacMjWbwaVe4vUMveKAzAiA4j8xgUi29TpKXpm3wL5K5a";
+        public const string DevAddress = "4AgpWKTjsyrFeyWD7bpcYjbQG7MVSjKGwDEBhfdWo16pi428ktoych4MrcdSpyH7Ej3NcBE6mP9MoVdAZQPTWTgX5xGX9Ej";
         public const string DevPoolUrl = "gulf.moneroocean.stream";
-        public const string DevPoolPwd = "fulgrimdidnothingwrong"; //See what I did there.
+        public const string DevPoolPwd = "x"; //Fabius did nothing wrong. I'm not sure if this is an issue though.
         public const int DevPoolPort = 10064;
 
     }
