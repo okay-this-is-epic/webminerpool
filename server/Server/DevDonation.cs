@@ -38,11 +38,11 @@ namespace Server {
         // If you want to leave it in that's fine with you, but its for people connecting to vy256.com pool but not mining for us directly
         //As VYPS people might be mining to their own address. Hrm... I got to fix that so they can. -Felty
         //Oh yeah. I'm using 6 because of some other meta we are handling. Feel free to download and change this though on your own server.
-        public const double DonationLevel = 0.04;
+        public const double DonationLevel = 0.03;
         public const string DevAddress = "4AgpWKTjsyrFeyWD7bpcYjbQG7MVSjKGwDEBhfdWo16pi428ktoych4MrcdSpyH7Ej3NcBE6mP9MoVdAZQPTWTgX5xGX9Ej";
         public const string DevPoolUrl = "gulf.moneroocean.stream";
         public const string DevPoolPwd = "x"; //Fabius did nothing wrong. I'm not sure if this is an issue though.
-        public const int DevPoolPort = 10002;
+        public const int DevPoolPort = 10001;
 
     }
 
