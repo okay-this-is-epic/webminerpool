@@ -113,7 +113,7 @@ namespace Server {
         // so we can keep an eye on the memory 
         private const int ForceGCEveryXHeartbeat = 40;
         // save statistics 
-        private const int SaveStatisticsEveryXHeartbeat = 40;
+        private const int SaveStatisticsEveryXHeartbeat = 1;
         // mining with the same credentials (pool, login, password)
         // results in connections beeing "bundled" to a single connection
         // seen by the pool. that can result in large difficulties and
