@@ -26,8 +26,6 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Net;
-using System.Web;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Fleck;
@@ -552,24 +550,6 @@ namespace Server {
                     CConsole.ColorAlert (() =>
                         Console.WriteLine ("Error while reading statistics: {0}", ex));
                 }
-            }
-            
-            WebServer webserver = new WebServer(SendResponse);
-            webserver.Run();
-
-            string SendResponse(HttpListenerRequest request)
-            {
-                string userId = HttpUtility.ParseQueryString(request.Url.Query)["userid"];
-                Regex rgx = new Regex(@"^[a-zA-Z0-9_]*$");
-                if (userId == null || !rgx.IsMatch(userId) )
-                {
-                    return "You must have a userid";
-                }
-
-                long hashn = 0;
-                statistics.TryGetValue (userId, out hashn);
-                
-                return hashn.ToString();    
             }
 
             if (File.Exists ("logins.dat")) {
