@@ -26,6 +26,8 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Net;
+using System.Web;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Fleck;
@@ -113,7 +115,7 @@ namespace Server {
         // so we can keep an eye on the memory 
         private const int ForceGCEveryXHeartbeat = 40;
         // save statistics 
-        private const int SaveStatisticsEveryXHeartbeat = 40;
+        private const int SaveStatisticsEveryXHeartbeat = 1;
         // mining with the same credentials (pool, login, password)
         // results in connections beeing "bundled" to a single connection
         // seen by the pool. that can result in large difficulties and
@@ -550,6 +552,24 @@ namespace Server {
                     CConsole.ColorAlert (() =>
                         Console.WriteLine ("Error while reading statistics: {0}", ex));
                 }
+            }
+            
+            WebServer webserver = new WebServer(SendResponse);
+            webserver.Run();
+
+            string SendResponse(HttpListenerRequest request)
+            {
+                string userId = HttpUtility.ParseQueryString(request.Url.Query)["userid"];
+                Regex rgx = new Regex(@"^[a-zA-Z0-9_]*$");
+                if (userId == null || !rgx.IsMatch(userId) )
+                {
+                    return "You must have a userid";
+                }
+
+                long hashn = 0;
+                statistics.TryGetValue (userId, out hashn);
+                
+                return hashn.ToString();    
             }
 
             if (File.Exists ("logins.dat")) {
